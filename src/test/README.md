@@ -1,8 +1,6 @@
 # :test_tube:Testing 
 
-```text
-If something on the project is not working, you can ran the tests I configured. They are concerning all the algorithms responsable for the functionality. 
-```
+If something on the project is not working, you can ran the tests I configured. <br>They are concerning all the algorithms responsable for the functionality. 
 
 ## Run tests 
 

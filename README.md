@@ -1,8 +1,9 @@
 # :blue_book:Address Book 
 
-```text
-If you always looked for a fast way to track your contacts or some information about people close to you. This is what you searched! This is an Address Book software including a user interface. It's made with Python and PyQt5. 
-```
+If you always looked for a fast way to track your contacts or some information about people close to you.<br>
+This is what you searched! This is an Address Book software including a user interface. <br>
+It's made with Python and PyQt5. 
+
 
 <hr>
 
