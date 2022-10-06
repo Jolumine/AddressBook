@@ -149,21 +149,23 @@ class Open_Dialog(QDialog):
         self.save_button.show()
 
     def cancel(self):
-            self.fname.setReadOnly(True)
-            self.lname.setReadOnly(True)
-            self.pnumber.setReadOnly(True)
-            self.addr.setReadOnly(True)
-            self.mail_addr.setReadOnly(True)
+        self.fname.setReadOnly(True)
+        self.lname.setReadOnly(True)
+        self.pnumber.setReadOnly(True)
+        self.addr.setReadOnly(True)
+        self.mail_addr.setReadOnly(True)
 
-            self.opt_layout.removeWidget(self.cancel_button)
-            self.opt_layout.removeWidget(self.save_button)
-            self.cancel_button.hide()
-            self.save_button.hide()
+        self.opt_layout.removeWidget(self.cancel_button)
+        self.opt_layout.removeWidget(self.save_button)
+        self.cancel_button.hide()
+        self.save_button.hide()
 
-            self.opt_layout.addWidget(self.modify_button)
-            self.opt_layout.addWidget(self.delete_button)
-            self.modify_button.show()
-            self.delete_button.show()
+        self.opt_layout.addWidget(self.modify_button)
+        self.opt_layout.addWidget(self.delete_button)
+        self.modify_button.show()
+        self.delete_button.show()
+
+        self.render_data()
 
 
     def save(self):
@@ -185,3 +187,20 @@ class Open_Dialog(QDialog):
         logging.info(f"User {generate_hash(self.fname.text())} modified [OK]")
 
         self.cancel()
+
+    
+    def render_data(self):
+        self.fname.clear()
+        self.lname.clear()
+        self.pnumber.clear()
+        self.addr.clear()
+        self.mail_addr.clear()
+
+        with open(PATH+"/entrys.json", "r") as f: 
+            parsed = json.load(f)
+
+        self.fname.setText(parsed["Contacts"][self.number]["Firstname"])
+        self.lname.setText(parsed["Contacts"][self.number]["Lastname"])
+        self.pnumber.setText(parsed["Contacts"][self.number]["Phonenumber"])
+        self.addr.setText(parsed["Contacts"][self.number]["Address"])
+        self.mail_addr.setText(parsed["Contacts"][self.number]["Mail Address"])
