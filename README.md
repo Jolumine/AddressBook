@@ -28,7 +28,6 @@ python run.py
 
 ## :soon: Coming soon
 
-- next | previous buttons 
 - developer options 
 - reset entrys 
 - export the dataset 
