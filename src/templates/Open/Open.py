@@ -125,9 +125,6 @@ class Open_Dialog(QDialog):
         if res == QMessageBox.Cancel:
             pass
         else:
-            logging.basicConfig(filename=PATH+"/logs.log", encoding="utf-8", format='%(asctime)s %(message)s', level=logging.INFO)
-            logging.info(f"User {generate_hash(Ops.get_fname(self.number))} deletion [OK]")
-
             Ops.delete_entry(self.number)            
             self.close()
 

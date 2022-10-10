@@ -11,6 +11,14 @@ class TestCase(unittest.TestCase):
     def setUp(self) -> None:
         super().setUp()
 
+        with open(PATH, "w") as f: 
+            f.close() 
+
+        with open(PATH, "w") as f: 
+            entry_data = {"Contacts": {}}
+            parsed = json.dumps(entry_data, indent=4, sort_keys=False)
+            f.write(parsed) 
+
         self.test_firstname = "Testfname"
         self.test_lastname = "Testlname"
         self.test_phonenumber = "12345678910"

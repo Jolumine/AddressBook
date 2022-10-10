@@ -1,6 +1,9 @@
 import os 
 import json 
+import logging
 
+from ..security import generate_hash
+from ..const import PATH
 
 ENTRYS = f"C:/Users/{os.getlogin()}/AppData/Local/AddressBookData/entrys.json"
 
@@ -19,6 +22,9 @@ class Ops:
             new = json.dumps(parsed, indent=4, sort_keys=False)
             f.write(new)
             f.close()
+
+        logging.basicConfig(filename=PATH+"/logs.log", encoding="utf-8", format='%(asctime)s %(message)s', level=logging.INFO)
+        logging.info(f"User {generate_hash(fname)} created [OK]")
 
         return None 
 
@@ -55,6 +61,9 @@ class Ops:
 
         with open(ENTRYS, "w") as f: 
             f.write(parsed_data)
+
+        logging.basicConfig(filename=PATH+"/logs.log", encoding="utf-8", format='%(asctime)s %(message)s', level=logging.INFO)
+        logging.info(f"User {generate_hash(Ops.get_fname(num))} deletion [OK]")
 
     @staticmethod
     def get_fname(num):
