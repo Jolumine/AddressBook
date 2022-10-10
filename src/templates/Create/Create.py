@@ -8,7 +8,6 @@ from ...security import generate_hash
 from ...data.Ops import Ops 
 from ...const import ADD_LOGO, PATH
 
-import logging
 
 class Create_Dialog(QDialog):
     def __init__(self, parent=None):
@@ -75,9 +74,6 @@ class Create_Dialog(QDialog):
                 addr = self.address.text()
 
                 Ops.create_entry(fname, lname, phone, mail, addr)
-
-                logging.basicConfig(filename=PATH+"/logs.log", encoding="utf-8", format='%(asctime)s %(message)s', level=logging.INFO)
-                logging.info(f"User {generate_hash(fname)} created [OK]")
 
                 self.close()
 
